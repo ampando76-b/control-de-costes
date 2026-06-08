@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-<!-- Revision: 33 -->
+<!-- Revision: 34 -->
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>COST CONTROL v0.33 - Rev. 33</title>
+<title>COST CONTROL v0.34 - Rev. 34</title>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
@@ -384,6 +384,19 @@ table .group td{background:var(--green-dark);color:var(--white);font-family:var(
 .cashflowInvoiceTable .rowGroup td,.cashflowInvoiceTable .rowGroup td:first-child{background:var(--green-dark)!important;color:var(--white)!important;font-family:var(--font-title);font-weight:600;text-transform:uppercase}
 @media(max-width:640px){.versionItem{grid-template-columns:1fr;gap:4px}}
 
+/* LOGIN CLOUD STATUS */
+.loginCloudBadge{display:flex;align-items:center;gap:6px;font-size:11px;padding:6px 10px;border-radius:3px;margin-top:8px;line-height:1.3}
+.loginCloudBadge.off{background:#fff7ec;color:#7a5000;border:1px solid #f2d5ac}
+.loginCloudBadge.ok{background:var(--green-light);color:var(--green-dark);border:1px solid var(--green-mid)}
+.loginCloudBadge.connecting{background:var(--gray-bg);color:var(--gray-mid);border:1px solid var(--gray-line)}
+.loginCloudBadge .loginCloudDot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+.loginCloudBadge.off .loginCloudDot{background:var(--amber)}
+.loginCloudBadge.ok .loginCloudDot{background:var(--green);animation:livePulse 2s infinite}
+.loginCloudBadge.connecting .loginCloudDot{background:var(--gray-mid)}
+.loginSyncMsg{font-size:11px;color:var(--green-dark);text-align:center;margin-top:6px;min-height:14px}
+/* CLOUD ADMIN SECTION IN SETTINGS */
+.cloudAdminBox{background:#f8f8f6;border:1px solid var(--gray-line);border-radius:3px;padding:12px 14px;margin-top:10px}
+.cloudAdminBox .formRow{margin-bottom:6px}
 /* LIVE SYNC */
 .liveBadge{display:inline-flex;align-items:center;gap:5px;font-family:var(--font-title);font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--green-dark);background:var(--green-light);border:1px solid var(--green-mid);border-radius:2px;padding:4px 9px;user-select:none}
 .liveBadge .liveDot{width:7px;height:7px;border-radius:50%;background:var(--green);animation:livePulse 1.8s infinite}
@@ -413,8 +426,10 @@ table .group td{background:var(--green-dark);color:var(--white);font-family:var(
     <select id="loginProject"></select>
     <input type="text" id="loginUser" placeholder="User / Supabase email" autocomplete="username">
     <input type="password" id="loginPass" placeholder="Password" autocomplete="current-password">
-    <button onclick="doLogin()">Access</button>
+    <button onclick="doLogin()" id="loginBtn">Access</button>
     <div class="loginErr" id="loginErr"></div>
+    <div class="loginSyncMsg" id="loginSyncMsg"></div>
+    <div id="loginCloudBadge"></div>
   </div>
 </div>
 </div>
@@ -423,7 +438,7 @@ table .group td{background:var(--green-dark);color:var(--white);font-family:var(
 <div id="app">
 <header>
   <div class="hdrLogo"><img src="data:image/png;base64,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" alt="Nhood"></div>
-  <div class="hdrTitle">Cost Control <span style="font-size:11px;opacity:0.55">v0.32 · Rev. 32</span></div>
+  <div class="hdrTitle">Cost Control <span style="font-size:11px;opacity:0.55">v0.34 · Rev. 34</span></div>
   <div class="hdrProject" id="hdrProject"></div>
   <div class="hdrRight">
     <span class="hdrUser" id="hdrUser"></span>
@@ -636,6 +651,7 @@ table .group td{background:var(--green-dark);color:var(--white);font-family:var(
     <div class="formRow"><label>Supabase URL</label><input type="text" id="cloudUrl" placeholder="https://xxxx.supabase.co"></div>
     <div class="formRow"><label>Anon Key</label><input type="password" id="cloudAnonKey"></div>
     <div class="formRow" style="max-width:400px"><label>DB ID</label><input type="text" id="cloudDbId" value="main"></div>
+    <div id="cloudAdminSection"></div>
     <div class="formTitle" style="margin-top:28px">Cashflow Settings</div>
     <div class="formRow" style="max-width:400px"><label>Start Date</label><input type="date" id="cfg-cfStart" onchange="renderCashflowSettings()"></div>
     <div class="formRow" style="max-width:240px"><label>Planned Months</label><input type="number" id="cfg-cfMonths" min="1" max="36" step="1" value="12" onchange="renderCashflowSettings()"></div>
@@ -650,6 +666,8 @@ table .group td{background:var(--green-dark);color:var(--white);font-family:var(
     <div id="cfg-msg"></div>
     <div class="formTitle" style="margin-top:28px">Version Log</div>
     <div class="versionLog">
+      <div class="versionItem"><div class="versionTag">Rev. 34</div><div class="versionText"><strong>Colaboración real multiusuario:</strong> Cloud Admin Account en Settings — el superadmin guarda sus credenciales Supabase para push/pull automático. Pre-fetch de proyectos al cargar (política anon en Supabase). Auto-pull del admin al login. Spinner e indicador cloud en login. Repoblación del selector de proyectos tras pull.</div></div>
+      <div class="versionItem"><div class="versionTag">Rev. 33</div><div class="versionText"><strong>Auto-sync tiempo real:</strong> polling cada 30 s, auto-push con debounce 4 s, badge LIVE, toasts no bloqueantes, botón toggle Auto-sync ON/OFF.</div></div>
       <div class="versionItem"><div class="versionTag">Rev. 32</div><div class="versionText"><strong>Dashboard con Chart.js:</strong> 5 gráficos reales (Curva S, Desviación por capítulo, Donut comprometido, Extras acumulados, Cashflow mensual). Cabecera de proyecto bloqueada para usuarios no-admin.</div></div>
       <div class="versionItem"><div class="versionTag">Rev. 31</div><div class="versionText"><strong>Fix importación multi-proyecto:</strong> la importación de backup JSON ya no reemplaza toda la base de datos. Solo actualiza los records (y packages si los hay) del proyecto activo. El resto de proyectos permanecen intactos.</div></div>
       <div class="versionItem"><div class="versionTag">Rev. 30</div><div class="versionText"><strong>Estabilización multi-proyecto:</strong> eliminadas definiciones duplicadas de renderDashboard, añadido editor de distribución mensual de cashflow en Settings, botón Normalise Budget %, corrección de referencia cashflowSettingsEditor.</div></div>
@@ -767,8 +785,9 @@ function defaultProjectNode(id='default',seed={}){
 }
 let DB={users:JSON.parse(JSON.stringify(DEFAULT_USERS)),projects:{default:defaultProjectNode('default',{allowedUsers:DEFAULT_USERS.map(u=>u.user)})},currentProjectId:'default',project:defaultProjectConfig(),packages:[...DEFAULT_PACKAGES],records:[],nextId:1};
 let CU=null;
-const APP_REVISION='33';
+const APP_REVISION='34';
 const CLOUD_CFG_KEY='NhoodCC_cloud_cfg_v1';
+const CLOUD_ADMIN_KEY='NhoodCC_cloud_admin_v1';
 const DEFAULT_CLOUD_CONFIG={url:'',anonKey:'',dbId:'main'};
 let _suppressDirty=false;
 let CLOUD={url:'',anonKey:'',dbId:'main',accessToken:'',userEmail:'',lastUpdatedAt:'',lastUpdatedBy:'',dirty:false,lastAction:'',autoSync:false,_pollTimer:null,_pushTimer:null,_pushing:false,_polling:false};
@@ -1374,8 +1393,13 @@ async function cloudSignInWithCredentials(email,password,showAlert=false){
 async function tryAdminCloudSession(user,password){
   loadCloudConfig();
   if(!CLOUD.url||!CLOUD.anonKey)return false;
+  // Usa credenciales cloud guardadas (cuenta Supabase real del admin)
+  // Si no hay guardadas, intenta con user/password (funciona si admin@admin.es existe en Supabase)
+  const stored=loadCloudAdminCreds();
+  const tryEmail=stored.email||user;
+  const tryPass=stored.password||password;
   try{
-    await cloudSignInWithCredentials(user,password,false);
+    await cloudSignInWithCredentials(tryEmail,tryPass,false);
     CLOUD.lastAction='admin cloud session';
     updateCloudUI();
     return true;
@@ -1438,6 +1462,103 @@ async function pushCloudDB(force=false){
     updateCloudUI();
     return true;
   }catch(e){CLOUD.lastAction='push error';updateCloudUI();alert('Cloud push error: '+e.message);return false;}
+}
+
+// ========== CLOUD ADMIN CREDENTIALS ==========
+function loadCloudAdminCreds(){
+  try{return JSON.parse(localStorage.getItem(CLOUD_ADMIN_KEY)||'{}');}catch(e){return{};}
+}
+function saveCloudAdminCredsLocal(email,password){
+  localStorage.setItem(CLOUD_ADMIN_KEY,JSON.stringify({email:email||'',password:password||''}));
+}
+function renderCloudAdminSection(){
+  const el=document.getElementById('cloudAdminSection');
+  if(!el)return;
+  if(!isSuperAdmin()){el.innerHTML='';return;}
+  const creds=loadCloudAdminCreds();
+  el.innerHTML=`
+  <div class="formTitle" style="margin-top:24px">Cloud Admin Account
+    <span style="font-weight:400;font-size:10px;color:var(--gray-mid);margin-left:8px">Cuenta Supabase del superadmin para push/pull de datos</span>
+  </div>
+  <div class="cloudAdminBox">
+    <div class="msg" style="margin-bottom:10px">
+      Introduce aquí las credenciales de tu usuario Supabase (no es el login local <b>admin</b>, sino tu cuenta real en Supabase Authentication).
+      Permite que el superadmin suba configuración de proyectos al cloud para que todos los usuarios los vean.
+    </div>
+    <div class="formRow"><label>Email Supabase</label><input type="email" id="cfg-cloudAdminEmail" value="${escHtml(creds.email||'')}" placeholder="tu.email@empresa.com" style="max-width:320px"></div>
+    <div class="formRow"><label>Contraseña Supabase</label><input type="password" id="cfg-cloudAdminPass" value="${escHtml(creds.password||'')}" placeholder="••••••••" style="max-width:220px"></div>
+    <div class="btnRow">
+      <button class="btn prim" onclick="connectCloudAdmin()">Guardar y conectar</button>
+      <button class="btn sec" onclick="clearCloudAdminCreds()">Borrar credenciales</button>
+    </div>
+    <div id="cloudAdminMsg"></div>
+  </div>`;
+}
+async function connectCloudAdmin(){
+  const email=document.getElementById('cfg-cloudAdminEmail')?.value.trim()||'';
+  const password=document.getElementById('cfg-cloudAdminPass')?.value||'';
+  if(!email||!password){showMsg('cloudAdminMsg','Email y contraseña requeridos.',true);return;}
+  saveCloudAdminCredsLocal(email,password);
+  loadCloudConfig();
+  if(!CLOUD.url||!CLOUD.anonKey){showMsg('cloudAdminMsg','Guarda primero la URL y anon key de Supabase.',true);return;}
+  showMsg('cloudAdminMsg','Conectando con Supabase...');
+  try{
+    await cloudSignInWithCredentials(email,password,false);
+    _updateAutoSyncUI();
+    showMsg('cloudAdminMsg','✓ Conectado. Subiendo datos al cloud...');
+    const ok=await pushCloudDB(true); // force push para garantizar subida inicial
+    if(ok){showMsg('cloudAdminMsg','✓ Conectado y datos publicados en cloud. Los usuarios ya pueden ver los proyectos.');}
+    else{showMsg('cloudAdminMsg','✓ Conectado. Usa "Push Cloud" para subir los datos.',true);}
+    startAutoSync();
+  }catch(e){
+    showMsg('cloudAdminMsg','Error de conexión: '+e.message,true);
+  }
+}
+function clearCloudAdminCreds(){
+  if(!confirm('¿Borrar las credenciales cloud guardadas?'))return;
+  localStorage.removeItem(CLOUD_ADMIN_KEY);
+  document.getElementById('cfg-cloudAdminEmail').value='';
+  document.getElementById('cfg-cloudAdminPass').value='';
+  showMsg('cloudAdminMsg','Credenciales borradas.');
+}
+
+// ========== PRE-FETCH project list from cloud (usa anon key) ==========
+async function preFetchCloudProjects(){
+  loadCloudConfig();
+  const badge=document.getElementById('loginCloudBadge');
+  const syncMsg=document.getElementById('loginSyncMsg');
+  if(!CLOUD.url||!CLOUD.anonKey){
+    if(badge)badge.innerHTML='<div class="loginCloudBadge off"><span class="loginCloudDot"></span>Cloud no configurado — los datos son solo locales</div>';
+    return;
+  }
+  if(badge)badge.innerHTML='<div class="loginCloudBadge connecting"><span class="loginCloudDot"></span>Conectando con cloud...</div>';
+  try{
+    const url=CLOUD.url+'/rest/v1/cost_control_db?id=eq.'+encodeURIComponent(CLOUD.dbId||'main')+'&select=data,updated_at';
+    const res=await fetch(url,{headers:{'apikey':CLOUD.anonKey,'Authorization':'Bearer '+CLOUD.anonKey}});
+    if(!res.ok){
+      if(badge)badge.innerHTML='<div class="loginCloudBadge off"><span class="loginCloudDot"></span>Cloud configurado pero sin datos aún</div>';
+      return;
+    }
+    const rows=await res.json();
+    const row=Array.isArray(rows)&&rows.length?rows[0]:null;
+    if(!row||!row.data){
+      if(badge)badge.innerHTML='<div class="loginCloudBadge off"><span class="loginCloudDot"></span>Cloud configurado — sin datos publicados aún</div>';
+      return;
+    }
+    const d=normalizeCloudDB(row.data);
+    if(d.projects&&typeof d.projects==='object'){
+      // Mezcla proyectos del cloud en el DB local (no sobreescribe datos, solo añade proyectos)
+      if(!DB.projects||typeof DB.projects!=='object')DB.projects={};
+      Object.assign(DB.projects,d.projects);
+      ensureProjectsSchema();
+      populateLoginProjects();
+    }
+    const when=row.updated_at?new Date(row.updated_at).toLocaleString('es-ES',{day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'}):'';
+    if(badge)badge.innerHTML='<div class="loginCloudBadge ok"><span class="loginCloudDot"></span>☁ Cloud conectado'+(when?' · actualizado '+when:'')+'</div>';
+  }catch(e){
+    if(badge)badge.innerHTML='<div class="loginCloudBadge off"><span class="loginCloudDot"></span>Cloud configurado — no se pudo contactar</div>';
+    console.warn('preFetchCloudProjects error',e);
+  }
 }
 
 // ========== AUTO-SYNC (real-time collaboration) ==========
@@ -1554,40 +1675,73 @@ function _updateAutoSyncUI(){
 }
 
 // ========== LOGIN ==========
+function _loginBtn(text,disabled){
+  const btn=document.getElementById('loginBtn');
+  if(btn){btn.disabled=disabled;btn.textContent=text;}
+}
+function _loginSync(msg){
+  const el=document.getElementById('loginSyncMsg');
+  if(el)el.textContent=msg||'';
+}
 async function doLogin(){
   const u=document.getElementById('loginUser').value.trim();
   const p=document.getElementById('loginPass').value;
-  const projectId=document.getElementById('loginProject')?.value||'';
+  const projectSel=document.getElementById('loginProject');
+  let projectId=projectSel?.value||'';
   const err=document.getElementById('loginErr');
-  err.textContent='';
+  err.textContent='';_loginSync('');
   if(!u||!p){err.textContent='User and password required.';return;}
   if(!projectId){err.textContent='Choose a project first.';return;}
-  const btn=document.querySelector('.loginBody button');
-  if(btn){btn.disabled=true;btn.textContent='Accessing...';}
+  _loginBtn('Verificando...',true);
   try{
     if(normalizeUserKey(u)===SUPER_ADMIN_USER&&p===SUPER_ADMIN_PASS){
       CU={user:SUPER_ADMIN_USER,pass:'',role:'admin'};
       CLOUD.lastAction='admin local login';
-      await tryAdminCloudSession(SUPER_ADMIN_USER,p);
+      _loginSync('Conectando con cloud...');
+      const cloudOk=await tryAdminCloudSession(SUPER_ADMIN_USER,p);
+      if(cloudOk){
+        _loginSync('Sincronizando datos...');
+        const pulled=await pullCloudDB();
+        if(pulled){
+          // Repoblar selector con proyectos del cloud
+          populateLoginProjects();
+          // Mantener la selección del usuario si el proyecto sigue existiendo, si no tomar el primero disponible
+          if(projectSel){
+            if(!DB.projects[projectId]){projectId=projectSel.value||Object.keys(DB.projects)[0]||'default';}
+          }
+        }
+        _loginSync('');
+      }else{
+        _loginSync('⚠ Sin acceso cloud — usando datos locales');
+      }
     }else{
       loadCloudConfig();
       if(!CLOUD.url||!CLOUD.anonKey)throw new Error('Cloud is not configured. Ask the superadmin for the configured HTML file.');
+      _loginSync('Autenticando...');
       await cloudSignInWithCredentials(u,p,false);
       CU={user:u,pass:'',role:'user'};
+      _loginSync('Sincronizando datos cloud...');
       const pulled=await pullCloudDB();
       if(pulled===false)throw new Error('Could not pull cloud database.');
+      // Repoblar con proyectos del cloud y actualizar selección
+      populateLoginProjects();
+      if(projectSel){
+        if(!DB.projects[projectId]){projectId=projectSel.value||Object.keys(DB.projects)[0]||'default';}
+      }
+      _loginSync('');
     }
     ensureProjectsSchema();
-    if(!DB.projects[projectId])throw new Error('Selected project does not exist.');
-    if(DB.projects[projectId].active===false)throw new Error('Selected project is not active.');
+    if(!DB.projects[projectId])throw new Error('El proyecto seleccionado no existe. Por favor elige otro proyecto.');
+    if(DB.projects[projectId].active===false)throw new Error('El proyecto seleccionado no está activo.');
     if(!projectUserAllowed(u,projectId))throw new Error('User not authorized for the selected project.');
     loadActiveProjectFromStore(projectId);
   }catch(e){
     err.textContent='Login error: '+e.message;
+    _loginSync('');
     CLOUD.accessToken='';updateCloudUI();
     return;
   }finally{
-    if(btn){btn.disabled=false;btn.textContent='Access';}
+    _loginBtn('Access',false);
   }
   document.getElementById('loginScreen').style.display='none';
   document.getElementById('app').style.display='flex';
@@ -2628,6 +2782,7 @@ function renderSettings(){
   if(cfStart)cfStart.value=DB.project.cashflowStart||'';
   if(cfMonths)cfMonths.value=DB.project.cashflowMonths||12;
   hydrateCloudInputs();
+  renderCloudAdminSection();
   renderCashflowSettings();
 }
 function addPackage(){DB.packages.push('XX NEW');renderSettings();}
@@ -2682,6 +2837,9 @@ setupMoneyInputs();
 document.getElementById('loginUser').addEventListener('keydown',e=>{if(e.key==='Enter')document.getElementById('loginPass').focus();});
 icTypeChange();
 populateLoginProjects();
+// Pre-fetch project list from cloud so the login selector shows all projects
+// (requires anon SELECT policy in Supabase — see SUPABASE_SETUP.sql)
+preFetchCloudProjects();
 </script>
 </body>
 </html>
