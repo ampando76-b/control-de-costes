@@ -456,9 +456,9 @@ table .group td{background:var(--green-dark);color:var(--white);font-family:var(
 <div class="cloudBar">
   <span class="cloudStatus warn" id="cloudStatus">CLOUD OFF</span>
   <span class="liveBadge paused" id="liveBadge" title="Auto-sync: poll cloud every 30 s and push changes automatically" style="display:none"><span class="liveDot"></span><span id="liveBadgeLabel">LIVE OFF</span></span>
-  <button class="btn prim" onclick="pullCloudDB()">Pull Cloud</button>
-  <button class="btn prim" onclick="pushCloudDB(false)">Push Cloud</button>
-  <button class="btn tool" onclick="pushCloudDB(true)">Force Push</button>
+  <button class="btn prim" onclick="manualPull()">Pull Cloud</button>
+  <button class="btn prim" onclick="manualPush(false)">Push Cloud</button>
+  <button class="btn tool" onclick="manualPush(true)">Force Push</button>
   <button class="btn tool" id="btnAutoSync" onclick="toggleAutoSync()" style="display:none">Auto-sync OFF</button>
   <button class="btn del" onclick="doLogout()">Salir</button>
   <span class="cloudMeta" id="cloudMeta">Configure Supabase and sign in.</span>
@@ -1373,7 +1373,7 @@ function cloudRowUrl(select='*'){
   return CLOUD.url+'/rest/v1/cost_control_db?id=eq.'+encodeURIComponent(CLOUD.dbId||'main')+'&select='+encodeURIComponent(select);
 }
 async function cloudSignIn(){
-  saveCloudConfig();
+  loadCloudConfig();
   const email=document.getElementById('loginUser')?.value.trim()||'';
   const password=document.getElementById('loginPass')?.value||'';
   return cloudSignInWithCredentials(email,password,true);
@@ -1419,8 +1419,13 @@ async function fetchCloudRow(){
   if(!res.ok)throw new Error(data.message||'Cloud read failed');
   return Array.isArray(data)&&data.length?data[0]:null;
 }
+// Wrappers para los botones manuales (salvan lo que el usuario haya escrito en los inputs antes de operar)
+function manualPull(){saveCloudConfig();return pullCloudDB();}
+function manualPush(force=false){saveCloudConfig();return pushCloudDB(force);}
+
 async function pullCloudDB(){
-  saveCloudConfig();
+  // Carga config desde localStorage/DEFAULT (NO lee DOM — los inputs pueden estar vacíos durante login)
+  loadCloudConfig();
   if(!CLOUD.accessToken){alert('Sign in to Cloud DB first.');return false;}
   try{
     const row=await fetchCloudRow();
@@ -1439,7 +1444,8 @@ async function pullCloudDB(){
   }catch(e){CLOUD.lastAction='pull error';updateCloudUI();alert('Cloud pull error: '+e.message);return false;}
 }
 async function pushCloudDB(force=false){
-  saveCloudConfig();
+  // Carga config desde localStorage/DEFAULT (NO lee DOM — los inputs pueden estar vacíos durante login)
+  loadCloudConfig();
   if(!CLOUD.accessToken){alert('Sign in to Cloud DB first.');return false;}
   try{
     if(!force&&CLOUD.lastUpdatedAt){
