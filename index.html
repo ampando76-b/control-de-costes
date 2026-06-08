@@ -1,11 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
-<!-- Revision: 34 -->
-<head>
+<html lang="en"><!-- Revision: 34 --><head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>COST CONTROL v0.34 - Rev. 34</title>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700&amp;family=Roboto:wght@400;500;700&amp;display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 <style>
@@ -411,11 +409,11 @@ table .group td{background:var(--green-dark);color:var(--white);font-family:var(
 .toast.warn{background:#fff7ec;color:#7a5000;border:1px solid #f2d5ac}
 .toast.err{background:#fdf0ee;color:var(--red);border:1px solid #f3c8c0}
 </style>
-</head>
+<link rel="stylesheet" href="chrome-extension://bpppldnipnppkmongnkihlioaojpmine/extension-container.css"></head>
 <body>
 
 <!-- LOGIN -->
-<div id="loginScreen">
+<div id="loginScreen" style="display: none;">
 <div class="loginBox">
   <div class="loginHeader">
     <img src="data:image/png;base64,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" alt="Nhood">
@@ -423,50 +421,50 @@ table .group td{background:var(--green-dark);color:var(--white);font-family:var(
   </div>
   <div class="loginBody">
     <div class="loginHint">Choose the active project before signing in.</div>
-    <select id="loginProject"></select>
+    <select id="loginProject"><option value="default">1 | 1</option><option value="project_mq4wrwh6">w | 2</option></select>
     <input type="text" id="loginUser" placeholder="User / Supabase email" autocomplete="username">
     <input type="password" id="loginPass" placeholder="Password" autocomplete="current-password">
     <button onclick="doLogin()" id="loginBtn">Access</button>
     <div class="loginErr" id="loginErr"></div>
     <div class="loginSyncMsg" id="loginSyncMsg"></div>
-    <div id="loginCloudBadge"></div>
+    <div id="loginCloudBadge"><div class="loginCloudBadge off"><span class="loginCloudDot"></span>Cloud configurado — sin datos publicados aún</div></div>
   </div>
 </div>
 </div>
 
 <!-- APP -->
-<div id="app">
+<div id="app" style="display: flex;">
 <header>
   <div class="hdrLogo"><img src="data:image/png;base64,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" alt="Nhood"></div>
   <div class="hdrTitle">Cost Control <span style="font-size:11px;opacity:0.55">v0.34 · Rev. 34</span></div>
-  <div class="hdrProject" id="hdrProject"></div>
+  <div class="hdrProject" id="hdrProject">1 | 1</div>
   <div class="hdrRight">
-    <span class="hdrUser" id="hdrUser"></span>
+    <span class="hdrUser" id="hdrUser">User: admin@admin.es · admin</span>
     <button class="hdrBtn exitBtn" onclick="doLogout()">Salir</button>
   </div>
 </header>
 
 <div class="projBar">
-  <div><label>Commercial Center</label><input id="pjCenter" oninput="saveProjectInfo()" placeholder="—" style="width:160px" readonly></div>
+  <div><label>Commercial Center</label><input id="pjCenter" oninput="saveProjectInfo()" placeholder="—" style="width:160px"></div>
   <div class="sep">|</div>
-  <div><label>Project</label><input id="pjProject" oninput="saveProjectInfo()" placeholder="—" style="width:260px" readonly></div>
-  <span class="dbKey" id="dbKeyDisplay"></span>
+  <div><label>Project</label><input id="pjProject" oninput="saveProjectInfo()" placeholder="—" style="width:260px"></div>
+  <span class="dbKey" id="dbKeyDisplay">[DB: NhoodCC_vr7kbx]</span>
 </div>
 
 <div class="cloudBar">
-  <span class="cloudStatus warn" id="cloudStatus">CLOUD OFF</span>
-  <span class="liveBadge paused" id="liveBadge" title="Auto-sync: poll cloud every 30 s and push changes automatically" style="display:none"><span class="liveDot"></span><span id="liveBadgeLabel">LIVE OFF</span></span>
+  <span class="cloudStatus ok" id="cloudStatus">CLOUD READY</span>
+  <span class="liveBadge" id="liveBadge" title="Auto-sync: poll cloud every 30 s and push changes automatically" style=""><span class="liveDot"></span><span id="liveBadgeLabel">LIVE</span></span>
   <button class="btn prim" onclick="manualPull()">Pull Cloud</button>
   <button class="btn prim" onclick="manualPush(false)">Push Cloud</button>
   <button class="btn tool" onclick="manualPush(true)">Force Push</button>
-  <button class="btn tool" id="btnAutoSync" onclick="toggleAutoSync()" style="display:none">Auto-sync OFF</button>
+  <button class="btn tool" id="btnAutoSync" onclick="toggleAutoSync()" style="background: var(--green); color: var(--white); border-color: var(--green);">Auto-sync ON</button>
   <button class="btn del" onclick="doLogout()">Salir</button>
-  <span class="cloudMeta" id="cloudMeta">Configure Supabase and sign in.</span>
+  <span class="cloudMeta" id="cloudMeta">DB main · admin@admin.es · last cloud save: 8/6/2026 09:49 · by admin@admin.es · config saved</span>
 </div>
 <div id="toastContainer"></div>
 
 <div class="tabs">
-  <div class="tab active" onclick="showTab('dashboard',this)">Dashboard</div>
+  <div class="tab" onclick="showTab('dashboard',this)">Dashboard</div>
   <div class="tab" onclick="showTab('summary',this)">Summary</div>
   <div class="tab" onclick="showTab('invoiceSummary',this)">Invoice Summary</div>
   <div class="tab" onclick="showTab('cashflow',this)">Cashflow</div>
@@ -478,11 +476,11 @@ table .group td{background:var(--green-dark);color:var(--white);font-family:var(
   <div class="tab" onclick="showTab('savesIntro',this)">Intro Saves</div>
   <div class="tab" onclick="showTab('lists',this)">Lists</div>
   <div class="tab" id="tabData" onclick="showTab('dataView',this)">Data</div>
-  <div class="tab" id="tabSettings" onclick="showTab('settings',this)">Settings</div>
+  <div class="tab active" id="tabSettings" onclick="showTab('settings',this)">Settings</div>
 </div>
 
 <!-- DASHBOARD -->
-<div class="panel active" id="panel-dashboard"><div class="content" id="dashContent"></div></div>
+<div class="panel" id="panel-dashboard"><div class="content" id="dashContent"><div class="ownerDash"><div class="ownerTop"><div class="ownerKpi"><div class="kHead"><span class="kIcon">▣</span><span>PEC<br>Contratado</span></div><div><div class="kNum">1,48 M€</div><div class="kNote">Base licitación: 3,00 M€</div></div></div><div class="ownerKpi good"><div class="kHead"><span class="kIcon">↗</span><span>Coste<br>Previsto Final</span></div><div><div class="kNum">1,48 M€</div><div class="kNote">0€ sobre contrato</div></div></div><div class="ownerKpi"><div class="kHead"><span class="kIcon">▤</span><span>Certificado<br>acum.</span></div><div><div class="kNum">380k€</div><div class="kNote">26% del contrato</div></div></div><div class="ownerKpi bad"><div class="kHead"><span class="kIcon">◔</span><span>CPI</span></div><div><div class="kNum">0,26</div><div class="kNote">Sobrecoste</div></div></div><div class="ownerKpi bad"><div class="kHead"><span class="kIcon">◷</span><span>SPI</span></div><div><div class="kNum">0,26</div><div class="kNote">Retraso plazo</div></div></div><div class="ownerKpi warn"><div class="kHead"><span class="kIcon">⚠</span><span>Riesgo vivo</span></div><div><div class="kNum">76k€</div><div class="kNote">1 riesgo activo</div></div></div></div><div class="ownerGridFour"><div class="ownerCard"><h3>1 · Curva S — Avance económico</h3><div class="ownerLegend"><span><i style="background:#185FA5"></i>Planificado</span><span><i style="background:#1D9E75"></i>Real certificado</span><span><i style="background:#D85A30;opacity:.8"></i>Previsión EAC</span></div><div style="position:relative;height:180px"><canvas id="ch-curvas" width="692" height="225" style="display: block; box-sizing: border-box; height: 180px; width: 554px;"></canvas></div></div><div class="ownerCard"><h3>2 · Desviación por capítulo</h3><div style="position:relative;height:210px"><canvas id="ch-desv" width="692" height="262" style="display: block; box-sizing: border-box; height: 210px; width: 554px;"></canvas></div></div><div class="ownerCard"><h3>3 · Comprometido vs pendiente</h3><div class="ownerLegend"><span><i style="background:#185FA5"></i>Certificado</span><span><i style="background:#B5D4F4"></i>Comprometido</span><span><i style="background:#D3D1C7"></i>Sin contratar</span></div><div style="position:relative;height:185px;display:flex;align-items:center;justify-content:center"><canvas id="ch-donut" style="max-height: 185px; display: block; box-sizing: border-box; height: 185px; width: 554px;" width="692" height="231"></canvas></div></div><div class="ownerCard"><h3>4 · Extras / Modificados acum.</h3><div style="position:relative;height:210px"><canvas id="ch-extras" width="692" height="262" style="display: block; box-sizing: border-box; height: 210px; width: 554px;"></canvas></div></div><div class="ownerCard" style="grid-column:span 2"><h3>5 · Coste comprometido vs Certificado mensual</h3><div class="ownerLegend"><span><i style="background:#084E86"></i>Coste comprometido</span><span><i style="background:#008837"></i>Certificado</span></div><div style="position:relative;height:175px"><canvas id="ch-cashflow" width="1442" height="218" style="display: block; box-sizing: border-box; height: 175px; width: 1153px;"></canvas></div></div></div></div></div></div>
 
 <!-- SUMMARY -->
 <div class="panel" id="panel-summary"><div class="content"><div id="summaryTable"></div></div></div>
@@ -500,7 +498,7 @@ table .group td{background:var(--green-dark);color:var(--white);font-family:var(
 <div class="panel" id="panel-budgetIntro"><div class="content" style="display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start">
   <div class="formPanel">
     <div class="formTitle">Budget Entry <span class="idBadge" id="ib-idBadge">(NEW)</span></div>
-    <div class="formRow"><label>Package</label><select id="ib-lote"></select></div>
+    <div class="formRow"><label>Package</label><select id="ib-lote"><option value="">— select —</option><option value="01 EXCAVACION Y MOV. TIERRAS">01 EXCAVACION Y MOV. TIERRAS</option><option value="02 CIMENTACION Y MUROS DE CONTENCION">02 CIMENTACION Y MUROS DE CONTENCION</option><option value="03 REDES ENTERRADAS">03 REDES ENTERRADAS</option><option value="04 ESTRUCTURA PREFABRICADA">04 ESTRUCTURA PREFABRICADA</option><option value="05 ESTRUCTURA METALICA Y CERRAJERIA">05 ESTRUCTURA METALICA Y CERRAJERIA</option><option value="06 FACHADAS METALICAS">06 FACHADAS METALICAS</option><option value="07 PAVIMENTOS Y SOLERAS">07 PAVIMENTOS Y SOLERAS</option><option value="08 OBRA CIVIL">08 OBRA CIVIL</option><option value="09 CUBIERTAS">09 CUBIERTAS</option><option value="10 ELECTRICIDAD Y CORRIENTES DEBILES">10 ELECTRICIDAD Y CORRIENTES DEBILES</option><option value="11 PCI">11 PCI</option><option value="12 CLIMATIZACION Y VENTILACION">12 CLIMATIZACION Y VENTILACION</option><option value="13 TRANSPORTE VERTICAL">13 TRANSPORTE VERTICAL</option><option value="14 MOBILIARIO">14 MOBILIARIO</option><option value="15 JARDINERIA">15 JARDINERIA</option><option value="16 ROTULOS Y SEÑALETICA">16 ROTULOS Y SEÑALETICA</option><option value="17 DIGITAL Y CONTEO">17 DIGITAL Y CONTEO</option><option value="18 CC, GR, SYS">18 CC, GR, SYS</option><option value="60 CONTINGENCIES">60 CONTINGENCIES</option><option value="70 BREEAM">70 BREEAM</option><option value="80 HON">80 HON</option><option value="81 SEGURIDAD Y SALUD">81 SEGURIDAD Y SALUD</option><option value="82 AIS">82 AIS</option><option value="83 VARIOS HONORARIOS">83 VARIOS HONORARIOS</option><option value="84 ESG">84 ESG</option><option value="90 TASAS">90 TASAS</option><option value="97 CONT">97 CONT</option><option value="98 SEGURO">98 SEGURO</option><option value="99 PRORATE">99 PRORATE</option></select></div>
     <div class="formRow"><label>Amount (€)</label><input type="text" id="ib-amount" class="moneyInput"></div>
     <div class="formRow"><label>Type</label><select id="ib-type"><option value="BUDGET">BUDGET</option><option value="AJUSTE BUDGET">AJUSTE BUDGET</option></select></div>
     <div class="formRow"><label>Description</label><input type="text" id="ib-desc"></div>
@@ -509,8 +507,8 @@ table .group td{background:var(--green-dark);color:var(--white);font-family:var(
   </div>
   <div class="formPanel">
     <div class="formTitle">Budget Transfer <span class="idBadge" id="ibt-idBadge">(NEW)</span></div>
-    <div class="formRow"><label>Source Package</label><select id="ibt-src"></select></div>
-    <div class="formRow"><label>Dest. Package</label><select id="ibt-dst"></select></div>
+    <div class="formRow"><label>Source Package</label><select id="ibt-src"><option value="">— select —</option><option value="01 EXCAVACION Y MOV. TIERRAS">01 EXCAVACION Y MOV. TIERRAS</option><option value="02 CIMENTACION Y MUROS DE CONTENCION">02 CIMENTACION Y MUROS DE CONTENCION</option><option value="99 PRORATE">99 PRORATE</option></select></div>
+    <div class="formRow"><label>Dest. Package</label><select id="ibt-dst"><option value="">— select —</option><option value="01 EXCAVACION Y MOV. TIERRAS">01 EXCAVACION Y MOV. TIERRAS</option><option value="02 CIMENTACION Y MUROS DE CONTENCION">02 CIMENTACION Y MUROS DE CONTENCION</option><option value="99 PRORATE">99 PRORATE</option></select></div>
     <div class="formRow"><label>Amount (€)</label><input type="text" id="ibt-amount" class="moneyInput"></div>
     <div class="formRow"><label>Description</label><input type="text" id="ibt-desc"></div>
     <div class="btnRow"><button class="btn prim" onclick="ibtNew()">New</button><button class="btn sec" onclick="ibtSearch()">Search</button><button class="btn prim" onclick="ibtSave()">Save</button><button class="btn del" onclick="ibtDelete()">Delete</button></div>
@@ -522,7 +520,7 @@ table .group td{background:var(--green-dark);color:var(--white);font-family:var(
 <div class="panel" id="panel-acpIntro"><div class="content">
   <div class="formPanel">
     <div class="formTitle">ACP Entry <span class="idBadge" id="acp-idBadge">(NEW)</span></div>
-    <div class="formRow"><label>Package</label><select id="acp-lote"></select></div>
+    <div class="formRow"><label>Package</label><select id="acp-lote"><option value="">— select —</option><option value="01 EXCAVACION Y MOV. TIERRAS">01 EXCAVACION Y MOV. TIERRAS</option><option value="02 CIMENTACION Y MUROS DE CONTENCION">02 CIMENTACION Y MUROS DE CONTENCION</option><option value="99 PRORATE">99 PRORATE</option></select></div>
     <div class="formRow"><label>Amount (€)</label><input type="text" id="acp-amount" class="moneyInput"></div>
     <div class="formRow"><label>Description</label><input type="text" id="acp-desc"></div>
     <div class="btnRow"><button class="btn prim" onclick="acpNew()">New</button><button class="btn sec" onclick="acpSearch()">Search</button><button class="btn prim" onclick="acpSave()">Save</button><button class="btn del" onclick="acpDelete()">Delete</button></div>
@@ -535,7 +533,7 @@ table .group td{background:var(--green-dark);color:var(--white);font-family:var(
   <div class="formPanel">
     <div class="formTitle">Contract Entry <span class="idBadge" id="ic-idBadge">(NEW)</span></div>
     <div class="formRow"><label>Contract Number</label><input type="text" id="ic-ncontrato"></div>
-    <div class="formRow"><label>Package</label><select id="ic-lote"></select></div>
+    <div class="formRow"><label>Package</label><select id="ic-lote"><option value="">— select —</option><option value="01 EXCAVACION Y MOV. TIERRAS">01 EXCAVACION Y MOV. TIERRAS</option><option value="02 CIMENTACION Y MUROS DE CONTENCION">02 CIMENTACION Y MUROS DE CONTENCION</option><option value="99 PRORATE">99 PRORATE</option></select></div>
     <div class="formRow"><label>Description</label><input type="text" id="ic-desc"></div>
     <div class="formRow"><label>Type</label>
       <select id="ic-type" onchange="icTypeChange()">
@@ -545,7 +543,7 @@ table .group td{background:var(--green-dark);color:var(--white);font-family:var(
         <option value="PEDIDO PRORRATEO">PEDIDO PRORRATEO</option>
       </select>
     </div>
-    <div class="formRow" id="row-parentContract"><label>Parent Contract</label><select id="ic-parent" onchange="icParentChange()"></select></div>
+    <div class="formRow" id="row-parentContract" style="display: none;"><label>Parent Contract</label><select id="ic-parent" onchange="icParentChange()"><option value="">— none —</option><option value="1111">1111</option><option value="222">222</option></select></div>
     <div class="formRow"><label>Amount (€)</label><input type="text" id="ic-amount" class="moneyInput"></div>
     <div class="formRow"><label>Contractor</label><input type="text" id="ic-contractor"></div>
     <div class="formRow" id="row-warranty"><label>Warranty Ret. %</label><input type="number" id="ic-warranty" step="0.1" value="5"></div>
@@ -561,18 +559,18 @@ table .group td{background:var(--green-dark);color:var(--white);font-family:var(
 <div class="panel" id="panel-invoicesIntro"><div class="content">
   <div class="formPanel">
     <div class="formTitle">Invoice Entry <span class="idBadge" id="inv-idBadge">(NEW)</span></div>
-    <div class="formRow"><label>Contract Number</label><select id="inv-ncontrato" onchange="invFillFromContract()"></select></div>
-    <div class="formRow"><label>Contract Amount</label><input id="inv-contractAmt" class="ro" readonly></div>
-    <div class="formRow"><label>Billing Pending</label><input id="inv-pending" class="ro" readonly></div>
-    <div class="formRow"><label>Package</label><input id="inv-lote" class="ro" readonly></div>
+    <div class="formRow"><label>Contract Number</label><select id="inv-ncontrato" onchange="invFillFromContract()"><option value="">— select —</option><option value="1111">1111</option><option value="222">222</option><option value="333">333</option><option value="444">444</option></select></div>
+    <div class="formRow"><label>Contract Amount</label><input id="inv-contractAmt" class="ro" readonly=""></div>
+    <div class="formRow"><label>Billing Pending</label><input id="inv-pending" class="ro" readonly=""></div>
+    <div class="formRow"><label>Package</label><input id="inv-lote" class="ro" readonly=""></div>
     <div class="formRow"><label>Concept</label><input type="text" id="inv-concept"></div>
-    <div class="formRow"><label>Contractor</label><input id="inv-contractor" class="ro" readonly></div>
+    <div class="formRow"><label>Contractor</label><input id="inv-contractor" class="ro" readonly=""></div>
     <div class="formRow"><label>Invoice Number</label><input type="text" id="inv-nfra"></div>
     <div class="formRow"><label>Invoice Date</label><input type="date" id="inv-date"></div>
     <div class="formRow"><label>Certificate excl. VAT</label><input type="text" id="inv-cert" class="moneyInput" oninput="invCheckOverflow()"></div>
-    <div class="formRow"><label>Infrastructure</label><input id="inv-infra" class="ro" readonly></div>
-    <div class="formRow"><label>Warranty Retention</label><input id="inv-warrantyAmt" class="ro" readonly></div>
-    <div class="formRow"><label>Prorate Retention</label><input id="inv-prorateAmt" class="ro" readonly></div>
+    <div class="formRow"><label>Infrastructure</label><input id="inv-infra" class="ro" readonly=""></div>
+    <div class="formRow"><label>Warranty Retention</label><input id="inv-warrantyAmt" class="ro" readonly=""></div>
+    <div class="formRow"><label>Prorate Retention</label><input id="inv-prorateAmt" class="ro" readonly=""></div>
     <div class="formRow"><label>Link</label><input type="text" id="inv-link" placeholder="https://..."></div>
     <div class="btnRow"><button class="btn prim" onclick="invNew()">New</button><button class="btn sec" onclick="invSearch()">Search</button><button class="btn prim" onclick="invSave()">Save</button><button class="btn del" onclick="invDelete()">Delete</button></div>
     <div id="inv-msg"></div>
@@ -583,10 +581,10 @@ table .group td{background:var(--green-dark);color:var(--white);font-family:var(
 <div class="panel" id="panel-savesIntro"><div class="content">
   <div class="formPanel">
     <div class="formTitle">Save Entry <span class="idBadge" id="sav-idBadge">(NEW)</span></div>
-    <div class="formRow"><label>Contract Number</label><select id="sav-ncontrato" onchange="savFillFromContract()"></select></div>
-    <div class="formRow"><label>Contract Amount</label><input id="sav-contractAmt" class="ro" readonly></div>
-    <div class="formRow"><label>Package</label><input id="sav-lote" class="ro" readonly></div>
-    <div class="formRow"><label>Contractor</label><input id="sav-contractor" class="ro" readonly></div>
+    <div class="formRow"><label>Contract Number</label><select id="sav-ncontrato" onchange="savFillFromContract()"><option value="">— select —</option><option value="1111">1111</option><option value="222">222</option><option value="333">333</option><option value="444">444</option></select></div>
+    <div class="formRow"><label>Contract Amount</label><input id="sav-contractAmt" class="ro" readonly=""></div>
+    <div class="formRow"><label>Package</label><input id="sav-lote" class="ro" readonly=""></div>
+    <div class="formRow"><label>Contractor</label><input id="sav-contractor" class="ro" readonly=""></div>
     <div class="formRow"><label>Description</label><input type="text" id="sav-desc"></div>
     <div class="formRow"><label>Amount (€)</label><input type="text" id="sav-amount" class="moneyInput"></div>
     <div class="btnRow"><button class="btn prim" onclick="savNew()">New</button><button class="btn sec" onclick="savSearch()">Search</button><button class="btn prim" onclick="savSave()">Save</button><button class="btn del" onclick="savDelete()">Delete</button></div>
@@ -597,12 +595,12 @@ table .group td{background:var(--green-dark);color:var(--white);font-family:var(
 <!-- LISTS -->
 <div class="panel" id="panel-lists"><div class="content">
   <div class="filterBar">
-    <select id="flt-user"><option value="">All Users</option></select>
-    <select id="flt-contract"><option value="">All Contracts</option></select>
-    <select id="flt-lote"><option value="">All Packages</option></select>
-    <select id="flt-type"><option value="">All Types</option></select>
+    <select id="flt-user"><option value="">All Users</option><option>admin@admin.es</option><option>lgonzalez@nhood.com</option></select>
+    <select id="flt-contract"><option value="">All Contracts</option><option>1111</option><option>222</option><option>333</option><option>444</option></select>
+    <select id="flt-lote"><option value="">All Packages</option><option>01 EXCAVACION Y MOV. TIERRAS</option><option>02 CIMENTACION Y MUROS DE CONTENCION</option><option>99 PRORATE</option></select>
+    <select id="flt-type"><option value="">All Types</option><option>BUDGET</option><option>CONTRATO</option><option>FACTURA</option><option>OS</option><option>PEDIDO PRORRATEO</option></select>
     <select id="flt-contractor"><option value="">All Contractors</option></select>
-    <select id="flt-month"><option value="">All Months</option></select>
+    <select id="flt-month"><option value="">All Months</option><option value="2026-01">Jan 26</option><option value="2026-02">Feb 26</option><option value="2026-03">Mar 26</option><option value="2026-06">Jun 26</option></select>
     <select id="flt-infra"><option value="">All Infra</option><option value="SI">SI</option><option value="NO">NO</option></select>
     <button class="btn prim" onclick="applyFilters()">Filter</button>
     <button class="btn sec" onclick="clearFilters()">Clear</button>
@@ -626,24 +624,67 @@ table .group td{background:var(--green-dark);color:var(--white);font-family:var(
 </div></div>
 
 <!-- SETTINGS (admin) -->
-<div class="panel" id="panel-settings"><div class="content">
+<div class="panel active" id="panel-settings"><div class="content">
   <div class="formPanel" style="max-width:1080px">
     <div class="formTitle">Projects</div>
     <div class="cashflowCfgHint">Only active projects appear in the sign-in dropdown. Each project keeps its own users, settings, cashflow, lots and records.</div>
-    <div id="projectsEditor"></div>
+    <div id="projectsEditor"><div class="projectCard">
+      <div class="projectCardHead">
+        <div>
+          <div class="projectCardTitle">default</div>
+          <div class="projectCardMeta">1 | 1</div>
+        </div>
+        <div class="btnRow" style="margin:0">
+          <button class="btn sec" type="button" onclick="setActiveProject('default')">Use</button>
+          <button class="btn del" type="button" onclick="deleteProject('default')">Delete</button>
+        </div>
+      </div>
+      <div class="projectMiniGrid">
+        <div class="formRow"><label>Commercial Center</label><input type="text" id="proj-center-default" value="1"></div>
+        <div class="formRow"><label>Project</label><input type="text" id="proj-name-default" value="1"></div>
+        <div class="formRow"><label>Active</label><input type="checkbox" id="proj-active-default" checked=""></div>
+        <div class="formRow"><label>Allowed Users</label><textarea class="projectUsers" id="proj-users-default" placeholder="email1@company.com
+email2@company.com">admin@admin.es
+lgonzalez@nhood.com</textarea></div>
+        <div class="formRow"><label>Settings Admins</label><textarea class="projectUsers" id="proj-admins-default" placeholder="email1@company.com
+email2@company.com">admin@admin.es</textarea></div>
+      </div>
+    </div><div class="projectCard">
+      <div class="projectCardHead">
+        <div>
+          <div class="projectCardTitle">project_mq4wrwh6</div>
+          <div class="projectCardMeta">w | 2</div>
+        </div>
+        <div class="btnRow" style="margin:0">
+          <button class="btn sec" type="button" onclick="setActiveProject('project_mq4wrwh6')">Use</button>
+          <button class="btn del" type="button" onclick="deleteProject('project_mq4wrwh6')">Delete</button>
+        </div>
+      </div>
+      <div class="projectMiniGrid">
+        <div class="formRow"><label>Commercial Center</label><input type="text" id="proj-center-project_mq4wrwh6" value="w"></div>
+        <div class="formRow"><label>Project</label><input type="text" id="proj-name-project_mq4wrwh6" value="2"></div>
+        <div class="formRow"><label>Active</label><input type="checkbox" id="proj-active-project_mq4wrwh6" checked=""></div>
+        <div class="formRow"><label>Allowed Users</label><textarea class="projectUsers" id="proj-users-project_mq4wrwh6" placeholder="email1@company.com
+email2@company.com">admin@admin.es
+lgonzalez@nhood.com</textarea></div>
+        <div class="formRow"><label>Settings Admins</label><textarea class="projectUsers" id="proj-admins-project_mq4wrwh6" placeholder="email1@company.com
+email2@company.com">admin@admin.es</textarea></div>
+      </div>
+    </div></div>
     <div class="btnRow" style="margin-top:12px">
       <button class="btn sec" onclick="addProject()">+ Add Project</button>
       <button class="btn prim" onclick="saveProjects()">Save Projects</button>
     </div>
     <div class="formTitle">Packages</div>
     <div style="font-size:11px;color:var(--gray-mid);margin-bottom:12px">Format: "XX Name" — 01-30 Construction · 31-50 Look&amp;Feel · 60 Contingencies · 70-89 Fees · 90-98 Ins.&amp;Taxes · 99 Prorate</div>
-    <div id="packEditor" style="display:grid;grid-template-columns:1fr 1fr;gap:8px"></div>
+    <div id="packEditor" style="display:grid;grid-template-columns:1fr 1fr;gap:8px"><div style="display:flex;align-items:center;gap:6px;padding:4px 8px;background:var(--white);border:1px solid var(--gray-line);border-radius:2px"><input value="01 EXCAVACION Y MOV. TIERRAS" id="pack-0" style="border:none;background:transparent;font-size:12px;flex:1;font-family:var(--font-body)"><button onclick="deletePackage(0)" style="background:none;border:none;color:var(--red);cursor:pointer;font-size:14px;padding:0 4px">×</button></div><div style="display:flex;align-items:center;gap:6px;padding:4px 8px;background:var(--white);border:1px solid var(--gray-line);border-radius:2px"><input value="02 CIMENTACION Y MUROS DE CONTENCION" id="pack-1" style="border:none;background:transparent;font-size:12px;flex:1;font-family:var(--font-body)"><button onclick="deletePackage(1)" style="background:none;border:none;color:var(--red);cursor:pointer;font-size:14px;padding:0 4px">×</button></div><div style="display:flex;align-items:center;gap:6px;padding:4px 8px;background:var(--white);border:1px solid var(--gray-line);border-radius:2px"><input value="03 REDES ENTERRADAS" id="pack-2" style="border:none;background:transparent;font-size:12px;flex:1;font-family:var(--font-body)"><button onclick="deletePackage(2)" style="background:none;border:none;color:var(--red);cursor:pointer;font-size:14px;padding:0 4px">×</button></div><div style="display:flex;align-items:center;gap:6px;padding:4px 8px;background:var(--white);border:1px solid var(--gray-line);border-radius:2px"><input value="04 ESTRUCTURA PREFABRICADA" id="pack-3" style="border:none;background:transparent;font-size:12px;flex:1;font-family:var(--font-body)"><button onclick="deletePackage(3)" style="background:none;border:none;color:var(--red);cursor:pointer;font-size:14px;padding:0 4px">×</button></div><div style="display:flex;align-items:center;gap:6px;padding:4px 8px;background:var(--white);border:1px solid var(--gray-line);border-radius:2px"><input value="05 ESTRUCTURA METALICA Y CERRAJERIA" id="pack-4" style="border:none;background:transparent;font-size:12px;flex:1;font-family:var(--font-body)"><button onclick="deletePackage(4)" style="background:none;border:none;color:var(--red);cursor:pointer;font-size:14px;padding:0 4px">×</button></div><div style="display:flex;align-items:center;gap:6px;padding:4px 8px;background:var(--white);border:1px solid var(--gray-line);border-radius:2px"><input value="06 FACHADAS METALICAS" id="pack-5" style="border:none;background:transparent;font-size:12px;flex:1;font-family:var(--font-body)"><button onclick="deletePackage(5)" style="background:none;border:none;color:var(--red);cursor:pointer;font-size:14px;padding:0 4px">×</button></div><div style="display:flex;align-items:center;gap:6px;padding:4px 8px;background:var(--white);border:1px solid var(--gray-line);border-radius:2px"><input value="07 PAVIMENTOS Y SOLERAS" id="pack-6" style="border:none;background:transparent;font-size:12px;flex:1;font-family:var(--font-body)"><button onclick="deletePackage(6)" style="background:none;border:none;color:var(--red);cursor:pointer;font-size:14px;padding:0 4px">×</button></div><div style="display:flex;align-items:center;gap:6px;padding:4px 8px;background:var(--white);border:1px solid var(--gray-line);border-radius:2px"><input value="08 OBRA CIVIL" id="pack-7" style="border:none;background:transparent;font-size:12px;flex:1;font-family:var(--font-body)"><button onclick="deletePackage(7)" style="background:none;border:none;color:var(--red);cursor:pointer;font-size:14px;padding:0 4px">×</button></div><div style="display:flex;align-items:center;gap:6px;padding:4px 8px;background:var(--white);border:1px solid var(--gray-line);border-radius:2px"><input value="09 CUBIERTAS" id="pack-8" style="border:none;background:transparent;font-size:12px;flex:1;font-family:var(--font-body)"><button onclick="deletePackage(8)" style="background:none;border:none;color:var(--red);cursor:pointer;font-size:14px;padding:0 4px">×</button></div><div style="display:flex;align-items:center;gap:6px;padding:4px 8px;background:var(--white);border:1px solid var(--gray-line);border-radius:2px"><input value="10 ELECTRICIDAD Y CORRIENTES DEBILES" id="pack-9" style="border:none;background:transparent;font-size:12px;flex:1;font-family:var(--font-body)"><button onclick="deletePackage(9)" style="background:none;border:none;color:var(--red);cursor:pointer;font-size:14px;padding:0 4px">×</button></div><div style="display:flex;align-items:center;gap:6px;padding:4px 8px;background:var(--white);border:1px solid var(--gray-line);border-radius:2px"><input value="11 PCI" id="pack-10" style="border:none;background:transparent;font-size:12px;flex:1;font-family:var(--font-body)"><button onclick="deletePackage(10)" style="background:none;border:none;color:var(--red);cursor:pointer;font-size:14px;padding:0 4px">×</button></div><div style="display:flex;align-items:center;gap:6px;padding:4px 8px;background:var(--white);border:1px solid var(--gray-line);border-radius:2px"><input value="12 CLIMATIZACION Y VENTILACION" id="pack-11" style="border:none;background:transparent;font-size:12px;flex:1;font-family:var(--font-body)"><button onclick="deletePackage(11)" style="background:none;border:none;color:var(--red);cursor:pointer;font-size:14px;padding:0 4px">×</button></div><div style="display:flex;align-items:center;gap:6px;padding:4px 8px;background:var(--white);border:1px solid var(--gray-line);border-radius:2px"><input value="13 TRANSPORTE VERTICAL" id="pack-12" style="border:none;background:transparent;font-size:12px;flex:1;font-family:var(--font-body)"><button onclick="deletePackage(12)" style="background:none;border:none;color:var(--red);cursor:pointer;font-size:14px;padding:0 4px">×</button></div><div style="display:flex;align-items:center;gap:6px;padding:4px 8px;background:var(--white);border:1px solid var(--gray-line);border-radius:2px"><input value="14 MOBILIARIO" id="pack-13" style="border:none;background:transparent;font-size:12px;flex:1;font-family:var(--font-body)"><button onclick="deletePackage(13)" style="background:none;border:none;color:var(--red);cursor:pointer;font-size:14px;padding:0 4px">×</button></div><div style="display:flex;align-items:center;gap:6px;padding:4px 8px;background:var(--white);border:1px solid var(--gray-line);border-radius:2px"><input value="15 JARDINERIA" id="pack-14" style="border:none;background:transparent;font-size:12px;flex:1;font-family:var(--font-body)"><button onclick="deletePackage(14)" style="background:none;border:none;color:var(--red);cursor:pointer;font-size:14px;padding:0 4px">×</button></div><div style="display:flex;align-items:center;gap:6px;padding:4px 8px;background:var(--white);border:1px solid var(--gray-line);border-radius:2px"><input value="16 ROTULOS Y SEÑALETICA" id="pack-15" style="border:none;background:transparent;font-size:12px;flex:1;font-family:var(--font-body)"><button onclick="deletePackage(15)" style="background:none;border:none;color:var(--red);cursor:pointer;font-size:14px;padding:0 4px">×</button></div><div style="display:flex;align-items:center;gap:6px;padding:4px 8px;background:var(--white);border:1px solid var(--gray-line);border-radius:2px"><input value="17 DIGITAL Y CONTEO" id="pack-16" style="border:none;background:transparent;font-size:12px;flex:1;font-family:var(--font-body)"><button onclick="deletePackage(16)" style="background:none;border:none;color:var(--red);cursor:pointer;font-size:14px;padding:0 4px">×</button></div><div style="display:flex;align-items:center;gap:6px;padding:4px 8px;background:var(--white);border:1px solid var(--gray-line);border-radius:2px"><input value="18 CC, GR, SYS" id="pack-17" style="border:none;background:transparent;font-size:12px;flex:1;font-family:var(--font-body)"><button onclick="deletePackage(17)" style="background:none;border:none;color:var(--red);cursor:pointer;font-size:14px;padding:0 4px">×</button></div><div style="display:flex;align-items:center;gap:6px;padding:4px 8px;background:var(--white);border:1px solid var(--gray-line);border-radius:2px"><input value="60 CONTINGENCIES" id="pack-18" style="border:none;background:transparent;font-size:12px;flex:1;font-family:var(--font-body)"><button disabled="" title="Mandatory package" onclick="deletePackage(18)" style="background:none;border:none;color:var(--gray-mid);cursor:not-allowed;font-size:14px;padding:0 4px">×</button></div><div style="display:flex;align-items:center;gap:6px;padding:4px 8px;background:var(--white);border:1px solid var(--gray-line);border-radius:2px"><input value="70 BREEAM" id="pack-19" style="border:none;background:transparent;font-size:12px;flex:1;font-family:var(--font-body)"><button disabled="" title="Mandatory package" onclick="deletePackage(19)" style="background:none;border:none;color:var(--gray-mid);cursor:not-allowed;font-size:14px;padding:0 4px">×</button></div><div style="display:flex;align-items:center;gap:6px;padding:4px 8px;background:var(--white);border:1px solid var(--gray-line);border-radius:2px"><input value="80 HON" id="pack-20" style="border:none;background:transparent;font-size:12px;flex:1;font-family:var(--font-body)"><button disabled="" title="Mandatory package" onclick="deletePackage(20)" style="background:none;border:none;color:var(--gray-mid);cursor:not-allowed;font-size:14px;padding:0 4px">×</button></div><div style="display:flex;align-items:center;gap:6px;padding:4px 8px;background:var(--white);border:1px solid var(--gray-line);border-radius:2px"><input value="81 SEGURIDAD Y SALUD" id="pack-21" style="border:none;background:transparent;font-size:12px;flex:1;font-family:var(--font-body)"><button disabled="" title="Mandatory package" onclick="deletePackage(21)" style="background:none;border:none;color:var(--gray-mid);cursor:not-allowed;font-size:14px;padding:0 4px">×</button></div><div style="display:flex;align-items:center;gap:6px;padding:4px 8px;background:var(--white);border:1px solid var(--gray-line);border-radius:2px"><input value="82 AIS" id="pack-22" style="border:none;background:transparent;font-size:12px;flex:1;font-family:var(--font-body)"><button disabled="" title="Mandatory package" onclick="deletePackage(22)" style="background:none;border:none;color:var(--gray-mid);cursor:not-allowed;font-size:14px;padding:0 4px">×</button></div><div style="display:flex;align-items:center;gap:6px;padding:4px 8px;background:var(--white);border:1px solid var(--gray-line);border-radius:2px"><input value="83 VARIOS HONORARIOS" id="pack-23" style="border:none;background:transparent;font-size:12px;flex:1;font-family:var(--font-body)"><button disabled="" title="Mandatory package" onclick="deletePackage(23)" style="background:none;border:none;color:var(--gray-mid);cursor:not-allowed;font-size:14px;padding:0 4px">×</button></div><div style="display:flex;align-items:center;gap:6px;padding:4px 8px;background:var(--white);border:1px solid var(--gray-line);border-radius:2px"><input value="84 ESG" id="pack-24" style="border:none;background:transparent;font-size:12px;flex:1;font-family:var(--font-body)"><button disabled="" title="Mandatory package" onclick="deletePackage(24)" style="background:none;border:none;color:var(--gray-mid);cursor:not-allowed;font-size:14px;padding:0 4px">×</button></div><div style="display:flex;align-items:center;gap:6px;padding:4px 8px;background:var(--white);border:1px solid var(--gray-line);border-radius:2px"><input value="90 TASAS" id="pack-25" style="border:none;background:transparent;font-size:12px;flex:1;font-family:var(--font-body)"><button disabled="" title="Mandatory package" onclick="deletePackage(25)" style="background:none;border:none;color:var(--gray-mid);cursor:not-allowed;font-size:14px;padding:0 4px">×</button></div><div style="display:flex;align-items:center;gap:6px;padding:4px 8px;background:var(--white);border:1px solid var(--gray-line);border-radius:2px"><input value="97 CONT" id="pack-26" style="border:none;background:transparent;font-size:12px;flex:1;font-family:var(--font-body)"><button disabled="" title="Mandatory package" onclick="deletePackage(26)" style="background:none;border:none;color:var(--gray-mid);cursor:not-allowed;font-size:14px;padding:0 4px">×</button></div><div style="display:flex;align-items:center;gap:6px;padding:4px 8px;background:var(--white);border:1px solid var(--gray-line);border-radius:2px"><input value="98 SEGURO" id="pack-27" style="border:none;background:transparent;font-size:12px;flex:1;font-family:var(--font-body)"><button disabled="" title="Mandatory package" onclick="deletePackage(27)" style="background:none;border:none;color:var(--gray-mid);cursor:not-allowed;font-size:14px;padding:0 4px">×</button></div><div style="display:flex;align-items:center;gap:6px;padding:4px 8px;background:var(--white);border:1px solid var(--gray-line);border-radius:2px"><input value="99 PRORATE" id="pack-28" style="border:none;background:transparent;font-size:12px;flex:1;font-family:var(--font-body)"><button disabled="" title="Mandatory package" onclick="deletePackage(28)" style="background:none;border:none;color:var(--gray-mid);cursor:not-allowed;font-size:14px;padding:0 4px">×</button></div></div>
     <div class="btnRow" style="margin-top:12px">
       <button class="btn sec" onclick="addPackage()">+ Add Package</button>
       <button class="btn prim" onclick="savePackages()">Save Packages</button>
     </div>
     <div class="formTitle" style="margin-top:28px">Users</div>
-    <div id="usersEditor"></div>
+    <div id="usersEditor"><div class="msg ok">Users are created in Supabase Authentication. Add here the Supabase users/emails authorized to open and modify Settings. <b>admin@admin.es</b> is always admin.</div><div class="formRow"><label>Settings Admins</label><textarea id="cfg-settingsAdmins" rows="4" placeholder="email1@company.com
+email2@company.com"></textarea></div><div class="btnRow"><button class="btn prim" onclick="saveSettingsAdmins()">Save Settings Admins</button></div></div>
     <div class="formTitle" style="margin-top:28px">Project Settings</div>
     <div class="formRow" style="max-width:400px"><label>Default Warranty %</label><input type="number" id="cfg-warranty" step="0.1" value="5"></div>
     <div class="formRow" style="max-width:400px"><label>Default Prorate %</label><input type="number" id="cfg-prorate" step="0.1" value="3.5"></div>
@@ -651,19 +692,35 @@ table .group td{background:var(--green-dark);color:var(--white);font-family:var(
     <div class="formRow"><label>Supabase URL</label><input type="text" id="cloudUrl" placeholder="https://xxxx.supabase.co"></div>
     <div class="formRow"><label>Anon Key</label><input type="password" id="cloudAnonKey"></div>
     <div class="formRow" style="max-width:400px"><label>DB ID</label><input type="text" id="cloudDbId" value="main"></div>
-    <div id="cloudAdminSection"></div>
+    <div id="cloudAdminSection">
+  <div class="formTitle" style="margin-top:24px">Cloud Admin Account
+    <span style="font-weight:400;font-size:10px;color:var(--gray-mid);margin-left:8px">Cuenta Supabase del superadmin para push/pull de datos</span>
+  </div>
+  <div class="cloudAdminBox">
+    <div class="msg" style="margin-bottom:10px">
+      Introduce aquí las credenciales de tu usuario Supabase (no es el login local <b>admin</b>, sino tu cuenta real en Supabase Authentication).
+      Permite que el superadmin suba configuración de proyectos al cloud para que todos los usuarios los vean.
+    </div>
+    <div class="formRow"><label>Email Supabase</label><input type="email" id="cfg-cloudAdminEmail" value="admin@admin.es" placeholder="tu.email@empresa.com" style="max-width:320px"></div>
+    <div class="formRow"><label>Contraseña Supabase</label><input type="password" id="cfg-cloudAdminPass" value="admin" placeholder="••••••••" style="max-width:220px"></div>
+    <div class="btnRow">
+      <button class="btn prim" onclick="connectCloudAdmin()">Guardar y conectar</button>
+      <button class="btn sec" onclick="clearCloudAdminCreds()">Borrar credenciales</button>
+    </div>
+    <div id="cloudAdminMsg"></div>
+  </div></div>
     <div class="formTitle" style="margin-top:28px">Cashflow Settings</div>
     <div class="formRow" style="max-width:400px"><label>Start Date</label><input type="date" id="cfg-cfStart" onchange="renderCashflowSettings()"></div>
     <div class="formRow" style="max-width:240px"><label>Planned Months</label><input type="number" id="cfg-cfMonths" min="1" max="36" step="1" value="12" onchange="renderCashflowSettings()"></div>
     <div class="cashflowCfgHint">Set the obra start date and planned duration. Monthly budget percentages and adjustments are edited directly in the Cashflow screen.</div>
-    <div id="cashflowSettingsEditor" style="margin-bottom:12px"></div>
+    <div id="cashflowSettingsEditor" style="margin-bottom:12px"><div class="cashflowPlan"><div class="cashflowPlanHead"><div>Month</div><div>Budget %</div><div>Closed</div></div><div class="cashflowPlanRow"><div class="monthLbl">Jan 26</div><div><input type="number" id="cf-pct-0" step="0.01" min="0" value="8.33"></div><div class="chkWrap"><input type="checkbox" id="cf-closed-0" checked=""></div></div><div class="cashflowPlanRow"><div class="monthLbl">Feb 26</div><div><input type="number" id="cf-pct-1" step="0.01" min="0" value="8.33"></div><div class="chkWrap"><input type="checkbox" id="cf-closed-1" checked=""></div></div><div class="cashflowPlanRow"><div class="monthLbl">Mar 26</div><div><input type="number" id="cf-pct-2" step="0.01" min="0" value="8.33"></div><div class="chkWrap"><input type="checkbox" id="cf-closed-2" checked=""></div></div><div class="cashflowPlanRow"><div class="monthLbl">Apr 26</div><div><input type="number" id="cf-pct-3" step="0.01" min="0" value="8.33"></div><div class="chkWrap"><input type="checkbox" id="cf-closed-3"></div></div><div class="cashflowPlanRow"><div class="monthLbl">May 26</div><div><input type="number" id="cf-pct-4" step="0.01" min="0" value="8.33"></div><div class="chkWrap"><input type="checkbox" id="cf-closed-4"></div></div><div class="cashflowPlanRow"><div class="monthLbl">Jun 26</div><div><input type="number" id="cf-pct-5" step="0.01" min="0" value="8.33"></div><div class="chkWrap"><input type="checkbox" id="cf-closed-5"></div></div><div class="cashflowPlanRow"><div class="monthLbl">Jul 26</div><div><input type="number" id="cf-pct-6" step="0.01" min="0" value="8.33"></div><div class="chkWrap"><input type="checkbox" id="cf-closed-6"></div></div><div class="cashflowPlanRow"><div class="monthLbl">Aug 26</div><div><input type="number" id="cf-pct-7" step="0.01" min="0" value="8.33"></div><div class="chkWrap"><input type="checkbox" id="cf-closed-7"></div></div><div class="cashflowPlanRow"><div class="monthLbl">Sep 26</div><div><input type="number" id="cf-pct-8" step="0.01" min="0" value="8.33"></div><div class="chkWrap"><input type="checkbox" id="cf-closed-8"></div></div><div class="cashflowPlanRow"><div class="monthLbl">Oct 26</div><div><input type="number" id="cf-pct-9" step="0.01" min="0" value="8.33"></div><div class="chkWrap"><input type="checkbox" id="cf-closed-9"></div></div><div class="cashflowPlanRow"><div class="monthLbl">Nov 26</div><div><input type="number" id="cf-pct-10" step="0.01" min="0" value="8.33"></div><div class="chkWrap"><input type="checkbox" id="cf-closed-10"></div></div><div class="cashflowPlanRow"><div class="monthLbl">Dec 26</div><div><input type="number" id="cf-pct-11" step="0.01" min="0" value="8.37"></div><div class="chkWrap"><input type="checkbox" id="cf-closed-11"></div></div><div class="cashflowPlanTotal"><span>Total</span><span id="cashflowPctTotal">100,00%</span></div></div></div>
     <div class="btnRow">
       <button class="btn prim" onclick="saveProjectCfg()">Save Settings</button>
       <button class="btn sec" onclick="normalizeCashflowPlan()">Normalise Budget %</button>
       <button class="btn sec" onclick="saveCloudConfig()">Save Cloud Config</button>
       <button class="btn xl" onclick="downloadConfiguredHTML()">Download Configured HTML</button>
     </div>
-    <div id="cfg-msg"></div>
+    <div id="cfg-msg" class="msg ok">Cloud config saved.</div>
     <div class="formTitle" style="margin-top:28px">Version Log</div>
     <div class="versionLog">
       <div class="versionItem"><div class="versionTag">Rev. 34</div><div class="versionText"><strong>Colaboración real multiusuario:</strong> Cloud Admin Account en Settings — el superadmin guarda sus credenciales Supabase para push/pull automático. Pre-fetch de proyectos al cargar (política anon en Supabase). Auto-pull del admin al login. Spinner e indicador cloud en login. Repoblación del selector de proyectos tras pull.</div></div>
@@ -788,7 +845,7 @@ let CU=null;
 const APP_REVISION='34';
 const CLOUD_CFG_KEY='NhoodCC_cloud_cfg_v1';
 const CLOUD_ADMIN_KEY='NhoodCC_cloud_admin_v1';
-const DEFAULT_CLOUD_CONFIG={url:'',anonKey:'',dbId:'main'};
+const DEFAULT_CLOUD_CONFIG={url:"https://vnppyxmybnuvkkxubnoc.supabase.co",anonKey:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZucHB5eG15Ym51dmtreHVibm9jIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA2NzgxMDksImV4cCI6MjA5NjI1NDEwOX0.RjncIx3uSQP_o2Xz4xVZPAlbr-G1DiKpLp_ER9p3VBQ",dbId:"main"};
 let _suppressDirty=false;
 let CLOUD={url:'',anonKey:'',dbId:'main',accessToken:'',userEmail:'',lastUpdatedAt:'',lastUpdatedBy:'',dirty:false,lastAction:'',autoSync:false,_pollTimer:null,_pushTimer:null,_pushing:false,_polling:false};
 
@@ -2847,5 +2904,35 @@ populateLoginProjects();
 // (requires anon SELECT policy in Supabase — see SUPABASE_SETUP.sql)
 preFetchCloudProjects();
 </script>
-</body>
-</html>
+
+
+<div><div id="datagalaxy-extension-container">
+    <button id="datagalaxy-extension-toggle-button">
+        <svg id="datagalaxy-extension-open-icon" xmlns="http://www.w3.org/2000/svg" width="434" height="434" viewBox="0 0 434 434" fill="none">
+            <g clip-path="url(#clip0_183_41)">
+                <path d="M217 0C336.74 0 434 96.9475 434 217.025C434 337.053 336.74 434 217 434C97.2603 434 0.000132311 336.701 0 217.025C0 97.3498 97.2603 0 217 0ZM242.647 101.021C200.807 101.021 165.805 130.939 158.312 170.764C147.399 164.277 135.178 160.557 121.55 160.557C82.4748 160.557 50.7921 192.537 50.792 231.607C50.792 270.678 82.4747 302.709 121.55 302.709H312.047C351.524 302.709 383.157 270.728 383.157 231.607C383.157 196.912 357.962 167.697 324.972 161.914C314.109 126.514 281.421 101.021 242.647 101.021ZM121.55 189.771C144.331 189.771 163.743 208.477 163.743 231.607C163.743 254.738 144.683 273.443 121.55 273.443C98.4166 273.443 79.709 254.738 79.709 231.607C79.709 208.477 98.7686 189.771 121.55 189.771ZM242.647 130.285C265.479 130.285 285.192 143.561 294.043 162.92C297.764 170.06 299.475 178.256 299.475 187.056V191.833C303.548 190.475 307.621 189.821 312.047 189.821C317.83 189.821 323.614 190.828 328.392 192.839C343.327 199.326 353.889 214.31 353.889 231.658C353.888 254.738 335.18 273.443 312.047 273.443C301.184 273.443 291.328 269.37 283.835 262.582C276.694 255.794 271.916 246.592 270.559 236.385C262.412 241.162 252.856 243.877 242.647 243.877H242.346C211.015 243.525 185.87 218.383 185.87 187.056C185.87 155.729 211.367 130.285 242.647 130.285Z" fill="white"></path>
+            </g>
+            <defs>
+                <clipPath id="clip0_183_41">
+                    <rect width="434" height="434" fill="white"></rect>
+                </clipPath>
+            </defs>
+        </svg>
+        <svg id="datagalaxy-extension-close-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g clip-path="url(#clip0_1017_13749)">
+                <g clip-path="url(#clip1_1017_13749)">
+                    <path d="M5.40006 3.59994L9.80012 8L5.40006 12.4001L6.50007 13.5001L10.9001 9.10002L12.0001 8L10.9001 6.89999L6.50007 2.49993L5.40006 3.59994Z" fill="white"></path>
+                </g>
+            </g>
+            <defs>
+                <clipPath id="clip0_1017_13749">
+                    <rect width="16" height="16" fill="white" transform="translate(16 16) rotate(-180)"></rect>
+                </clipPath>
+                <clipPath id="clip1_1017_13749">
+                    <rect width="7.77828" height="7.77828" fill="white" transform="translate(1 8) rotate(-45)"></rect>
+                </clipPath>
+            </defs>
+        </svg>
+    </button>
+</div>
+</div></body></html>
